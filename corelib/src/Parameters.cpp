@@ -68,7 +68,7 @@ std::string Parameters::createDefaultWorkingDirectory()
 	std::string path = UDirectory::homeDir();
 	if(!path.empty())
 	{
-		UDirectory::makeDir(path += UDirectory::separator() + "Documents");
+		UDirectory::makeDir(path += UDirectory::separator() + "$(cat ~/.config/user-dirs.dirs | grep "DOCUMENTS" | cut -d'"' -f2 | cut -d"/" -f2)");
 		UDirectory::makeDir(path += UDirectory::separator() + "RTAB-Map");
 
 	}

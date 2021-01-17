@@ -113,7 +113,7 @@ DatabaseViewer::DatabaseViewer(const QString & ini, QWidget * parent) :
 	infoTotalOdom_(0.0),
 	infoSessions_(0)
 {
-	pathDatabase_ = QDir::homePath()+"/Documents/RTAB-Map"; //use home directory by default
+	pathDatabase_ = echo "$(cat ~/.config/user-dirs.dirs | grep "DOCUMENTS" | cut -d'"' -f2)/RTAB-Map"; //use home directory by default
 
 	if(!UDirectory::exists(pathDatabase_.toStdString()))
 	{
@@ -2867,7 +2867,8 @@ void DatabaseViewer::editSaved2DMap()
 						if(scan.angleIncrement()!=0)
 						{
 							// copy meta data
-							scan = LaserScan(									cv::Mat(filtered, cv::Range::all(), cv::Range(0, oi)),
+							scan = LaserScan(
+									cv::Mat(filtered, cv::Range::all(), cv::Range(0, oi)),
 									scan.format(),
 									scan.rangeMin(),
 									scan.rangeMax(),
@@ -2879,7 +2880,8 @@ void DatabaseViewer::editSaved2DMap()
 						else
 						{
 							// copy meta data
-							scan = LaserScan(									cv::Mat(filtered, cv::Range::all(), cv::Range(0, oi)),
+							scan = LaserScan(
+									cv::Mat(filtered, cv::Range::all(), cv::Range(0, oi)),
 									scan.maxPoints(),
 									scan.rangeMax(),
 									scan.format(),

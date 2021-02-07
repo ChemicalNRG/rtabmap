@@ -3425,7 +3425,7 @@ void CloudViewer::keyReleaseEvent(QKeyEvent * event) {
 	}
 	else
 	{
-		QVTKWidget::keyPressEvent(event);
+		QVTKOpenGLWidget::keyPressEvent(event);
 	}
 }
 
@@ -3523,7 +3523,7 @@ void CloudViewer::keyPressEvent(QKeyEvent * event)
 	}
 	else
 	{
-		QVTKWidget::keyPressEvent(event);
+		QVTKOpenGLWidget::keyPressEvent(event);
 	}
 }
 
@@ -3535,13 +3535,13 @@ void CloudViewer::mousePressEvent(QMouseEvent * event)
 	}
 	else
 	{
-		QVTKWidget::mousePressEvent(event);
+		QVTKOpenGLWidget::mousePressEvent(event);
 	}
 }
 
 void CloudViewer::mouseMoveEvent(QMouseEvent * event)
 {
-	QVTKWidget::mouseMoveEvent(event);
+	QVTKOpenGLWidget::mouseMoveEvent(event);
 
 	std::vector<pcl::visualization::Camera> cameras;
 	_visualizer->getCameras(cameras);
@@ -3592,7 +3592,7 @@ void CloudViewer::mouseMoveEvent(QMouseEvent * event)
 
 void CloudViewer::wheelEvent(QWheelEvent * event)
 {
-	QVTKWidget::wheelEvent(event);
+	QVTKOpenGLWidget::wheelEvent(event);
 
 	std::vector<pcl::visualization::Camera> cameras;
 	_visualizer->getCameras(cameras);

@@ -88,7 +88,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace rtabmap {
 
 CloudViewer::CloudViewer(QWidget *parent, CloudViewerInteractorStyle * style) :
-		QVTKWidget(parent),
+		QVTKOpenGLWidget(parent),
 		_aLockCamera(0),
 		_aFollowCamera(0),
 		_aResetCamera(0),
